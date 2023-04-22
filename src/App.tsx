@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { LoginPage } from './layouts/components/Auth/index.component';
+import PrimaryLayout from './layouts/PrimaryLayout/index.component';
+import VideoPage from './layouts/components/Videos/index.component';
+import UserPage from './layouts/components/User/index.component';
+import ProtectRouter from './layouts/components/Auth/ProtectRoute/index.component';
+import HomePage from './layouts/components/Home/index.component';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/login" Component={LoginPage} />
+                <Route
+                    path="/"
+                    element={
+                        <ProtectRouter>
+                            <PrimaryLayout />
+                        </ProtectRouter>
+                    }
+                >
+                    <Route path="user" Component={UserPage} />
+                    <Route path="video" Component={VideoPage} />
+                    <Route path="/" Component={HomePage} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;

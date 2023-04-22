@@ -1,0 +1,14 @@
+.primary-layout {
+    width: 100%;
+
+    & .contents {
+        margin-top: var(--height-header);
+        display: flex;
+        align-items: flex-start;
+
+        & .content {
+            flex: 1;
+            padding: 20px;
+        }
+    }
+}

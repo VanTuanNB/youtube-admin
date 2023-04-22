@@ -2,6 +2,28 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Installation
+
+```bash
+    npm install
+```
+
+or
+
+```bash
+    yarn add
+```
+
+## Config environment variables
+
+-   You can create environment file to configure port
+
+```bash
+    PORT = your_port
+```
+
+-   note: default port is 3000, I recommend leaving a port with a value other than 3000(ex: 3001)
+
 ## Available Scripts
 
 In the project directory, you can run:
